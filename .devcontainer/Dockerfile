@@ -7,12 +7,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         bash \
         curl \
         git \
+        sudo \
         xz-utils \
     && rm -rf /var/lib/apt/lists/*
 
 # --- Usuário não-root (UID/GID 1000, casa com o fallback do docker-compose) ---
 RUN groupadd --gid 1000 app \
-    && useradd --uid 1000 --gid 1000 --create-home --shell /bin/bash app
+    && useradd --uid 1000 --gid 1000 --create-home --shell /bin/bash app \
+    && echo "app ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/app \
+    && chmod 0440 /etc/sudoers.d/app
 
 # Pré-cria o diretório de config do Claude Code com dono correto: quando o
 # devcontainer monta um volume nomeado vazio em /home/app/.claude pela
