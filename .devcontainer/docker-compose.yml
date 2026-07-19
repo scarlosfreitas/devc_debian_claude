@@ -1,6 +1,6 @@
 services:
   dev:
-    image: devc_debian:0.1
+    image: ${DOCKER_IMAGE_NAME}:0.1
     build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
@@ -9,5 +9,5 @@ services:
       - TZ=America/Sao_Paulo
     restart: unless-stopped
     volumes:
-      - ..:/workspace:cached                 # código do projeto (raiz)
+      - ..:/workspace:cached
     command: sleep infinity
