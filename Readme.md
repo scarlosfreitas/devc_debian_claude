@@ -1,6 +1,8 @@
 # Como utilizar
 git clone https://github.com/scarlosfreitas/devc-debian-claude.git
 mv devc_debian_claude nome-do-projeto
+* troca o nome em devcontainer.json
+* cria .env com o nome da imagem
 * Ctrl+shift+p reopen in container
 * para retirar o aviso ao ininiar um terminal:
 `nvm use --delete-prefix \"$(nvm current)\" --silent &&`
