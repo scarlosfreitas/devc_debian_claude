@@ -1,0 +1,16 @@
+{
+  "name": "devc_debian",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "remoteUser": "app",
+  "mounts": [
+    "source=claude-code-config-${devcontainerId},target=/home/app/.claude,type=volume"
+  ],
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/app/.claude"
+  }
+}
