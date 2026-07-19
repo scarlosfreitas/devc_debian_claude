@@ -1,5 +1,6 @@
 services:
   dev:
+    container_name: ${CONTAINER_NAME}
     image: ${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_TAG}
     build:
       context: ..
