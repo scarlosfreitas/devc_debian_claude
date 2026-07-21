@@ -7,7 +7,7 @@ agent-browser install --with-deps
 npx skills add vercel-labs/agent-browser
 
 # Context7
-claude mcp add context7 -- npx -y @upstash/context7-mcp
+claude plugin install context7@claude-plugins-official --scope user
 
 # context-mode
 claude plugin marketplace add mksglu/context-mode
