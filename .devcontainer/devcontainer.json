@@ -11,7 +11,9 @@
     "source=claude-code-config-${devcontainerId},target=/home/app/.claude,type=volume"
   ],
   "containerEnv": {
-    "CLAUDE_CONFIG_DIR": "/home/app/.claude"
+    "CLAUDE_CONFIG_DIR": "/home/app/.claude",
+    "LANG": "C.UTF-8",
+    "LC_ALL": "C.UTF-8"
   },
   "postCreateCommand": "bash .devcontainer/postCreate.sh"
 }
