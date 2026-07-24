@@ -1,3 +1,4 @@
+
 {
   //Ambiente de desenvolvimento com Debian e Claude Code
   "name": "DevC Claude Code",
@@ -13,8 +14,8 @@
     "source=${localEnv:HOME}/.claude,target=/home/app/.claude,type=bind", // config do claude
     "source=${localEnv:HOME}/.claude/projects/devc-debian-claude,target=/home/app/.claude/projects/-workspace,type=bind,consistency=cached"
   ],
-  "containerEnv": {
-    "CLAUDE_CONFIG_DIR": "/home/app/.claude",
+  "containerEnv": {    
+    "CLAUDE_CONFIG_DIR": "/home/app/.claude", // isso garant que o .claude.json saia da Home par dentro do .claude
     "LANG": "C.UTF-8",
     "LC_ALL": "C.UTF-8",
     // Força o uso do helper "store" (credenciais lidas de ~/.git-credentials,
