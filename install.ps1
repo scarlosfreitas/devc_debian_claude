@@ -107,6 +107,13 @@ try {
   Remove-Item -Recurse -Force (Join-Path $TmpDir ".git")
 
   Write-Step "copiando arquivos para '$Dir'..."
+  # arquivos que só fazem sentido no template (documentação/config interna do
+  # devc-debian-claude) e não devem ser instalados no projeto-alvo
+  $excludeNames = @('README.md', 'STATUS.md', 'CLAUDE.md', 'PRD.md', 'settings.local.json')
+  Get-ChildItem -Recurse -Force -Path $TmpDir -File |
+    Where-Object { $excludeNames -contains $_.Name } |
+    Remove-Item -Force
+
   Get-ChildItem -Force -Path $TmpDir | ForEach-Object {
     Copy-Item -Path $_.FullName -Destination $Dir -Recurse -Force
   }

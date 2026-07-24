@@ -106,6 +106,11 @@ git clone --quiet --depth 1 --branch "$BRANCH" "$REPO_URL" "$TMP_DIR"
 rm -rf "$TMP_DIR/.git"
 
 log "copiando arquivos para '$TARGET_DIR'..."
+# arquivos que só fazem sentido no template (documentação/config interna do
+# devc-debian-claude) e não devem ser instalados no projeto-alvo
+for f in README.md STATUS.md CLAUDE.md PRD.md settings.local.json; do
+  find "$TMP_DIR" -iname "$f" -delete
+done
 cp -a "$TMP_DIR"/. "$TARGET_DIR"/
 
 cd "$TARGET_DIR"
